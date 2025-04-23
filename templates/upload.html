@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>WhistleDrop Upload</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>📤 WhistleDrop Upload</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Hochladen & Verschlüsseln</button>
+    </form>
+</body>
+</html>
