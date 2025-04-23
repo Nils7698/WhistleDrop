@@ -6,3 +6,14 @@ Projekt im Rahmen der Vorlesung Cyberspionage.
 Python mit den Bibliotheken
 - pycryptodome
 - flask
+
+### Verwendung
+**Server starten**
+```
+python app.py
+```
+
+**Entschlüsseln**
+```
+//TODO
+```
