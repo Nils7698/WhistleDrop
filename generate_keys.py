@@ -9,6 +9,8 @@ os.makedirs(PRIVATE_DIR, exist_ok=True)
 
 KEY_DB_PATH = os.path.join(KEY_DIR, "public_keys.json")
 
+NO_OF_KEYS = 20
+
 def generate_keypair(key_id):
     key = RSA.generate(2048)
     private_pem = key.export_key().decode()
@@ -25,7 +27,7 @@ def generate_keypair(key_id):
 
 def main():
     keys = []
-    for i in range(5):  # 5 Schlüssel erzeugen
+    for i in range(NO_OF_KEYS):
         key_id = f"journalist-key-{i}"
         key_entry = generate_keypair(key_id)
         keys.append(key_entry)

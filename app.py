@@ -4,6 +4,7 @@ from rsa_utils import get_unused_public_key, encrypt_aes_key_with_rsa
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
 from uuid import uuid4
+import subprocess
 
 UPLOAD_FOLDER = "uploads/"
 KEY_FOLDER = "public_keys/"
@@ -53,4 +54,5 @@ def upload():
 
 
 if __name__ == "__main__":
+    subprocess.run(["python3", "generate_keys.py"], check=True)
     app.run(debug=True)
