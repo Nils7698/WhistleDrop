@@ -22,7 +22,7 @@ Die entschlüsselte Datei befindet sich nun im "downloads" Ordner
 
 ## Wie funktioniert die Verschlüsselung?
 ### Schlüsselerzeugung
-Beim Start von app.py wird mit generate_keys.py ein Satz von RSA-Schlüsselpaaren erzeugt:
+Beim Start von `app.py` wird mit `generate_keys.py` ein Satz von RSA-Schlüsselpaaren erzeugt:
 - Öffentliche Schlüssel werden im JSON-Format (public_keys.json) gespeichert
 - Private Schlüssel bleiben beim/die Journalist:in (journalist_private/)
 
