@@ -43,6 +43,7 @@ Nach Ausführung von `python auto_decrypt.py` passiert folgendes:
 4. speichert die Datei im Ordner downloads/ mit korrekter Dateiendung
 
 ### Systemarchitektur
+```mermaid
 sequenceDiagram
     participant Whistleblower
     participant Whistledrop_Server
@@ -62,3 +63,4 @@ sequenceDiagram
     Journalist->>Whistledrop_Server: holt verschlüsselte Datei & AES-Key
     Journalist->>Journalist: AES-Key mit Private Key entschlüsseln
     Journalist->>Journalist: Datei mit AES entschlüsseln
+```
