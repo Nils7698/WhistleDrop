@@ -41,3 +41,24 @@ Nach Ausführung von `python auto_decrypt.py` passiert folgendes:
 2. entschlüsselt den AES-Schlüssel mit den privaten RSA-Schlüsseln
 3. entschlüsselt die Datei im AES-GCM-Modus
 4. speichert die Datei im Ordner downloads/ mit korrekter Dateiendung
+
+### Systemarchitektur
+sequenceDiagram
+    participant Whistleblower
+    participant Whistledrop_Server
+    participant Journalist
+
+    Whistleblower->>Whistledrop_Server: Datei auswählen & hochladen
+    Note right of Whistledrop_Server: prüft Dateityp (.pdf, .docx etc.)
+
+    Whistledrop_Server->>Whistledrop_Server: AES-Schlüssel generieren
+    Whistledrop_Server->>Whistledrop_Server: Datei mit AES verschlüsseln (GCM)
+
+    Whistledrop_Server->>Whistledrop_Server: RSA-Public-Key von Journalist laden
+    Whistledrop_Server->>Whistledrop_Server: AES-Schlüssel mit RSA verschlüsseln
+
+    Whistledrop_Server->>Whistledrop_Server: Speicherung der\n - verschlüsselten Datei\n - verschlüsselten AES-Schlüssel
+
+    Journalist->>Whistledrop_Server: holt verschlüsselte Datei & AES-Key
+    Journalist->>Journalist: AES-Key mit Private Key entschlüsseln
+    Journalist->>Journalist: Datei mit AES entschlüsseln
